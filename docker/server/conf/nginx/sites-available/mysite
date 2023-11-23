@@ -1,0 +1,17 @@
+server {
+    listen              443 ssl;
+    server_name         tls.example.com;
+    ssl_certificate     /etc/nginx/tls_server.pem;
+    ssl_certificate_key /etc/nginx/tls_server.key;
+    #ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+    ssl_protocols       TLSv1.2;
+
+    access_log /var/log/nginx/tls-access.log combined;
+    
+
+    location / {
+        root /app/src;
+        index mysite.html;
+    }
+
+}
